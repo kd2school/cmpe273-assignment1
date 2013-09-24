@@ -53,13 +53,7 @@ public class BookDAO {
 	{
 		Book bk;
 		
-		
-		System.out.println("SEARCH BY ID= " + key);
-		
 		bk = (Book) books.get(key);
-		
-		System.out.println(bk.printTrace());
-		
 		
 		return bk;
 		

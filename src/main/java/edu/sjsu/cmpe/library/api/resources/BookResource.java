@@ -218,8 +218,6 @@ public class BookResource {
 
 		try {
 			Book book = bookRepository.searchByID(key);
-			System.out.println("CREATE REVIEW");
-			System.out.println(review.printTrace());
 			book.addReview(review);
 
 			String location = "/books/" + key + "/reviews/" + review.getId();

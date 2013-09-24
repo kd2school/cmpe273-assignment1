@@ -144,9 +144,7 @@ public class BookToL {
 	{
 		for(Author author: (ArrayList<Author>) book.getAuthors())
 		{
-			System.out.println("Author: \n" + author.printTrace() );
 			String str = "/books/" + isbn + "/authors/" + author.getId();
-			System.out.println(str);
 			authors.add(new LinkDto("view-author", str, "GET"));
 		}		
 		

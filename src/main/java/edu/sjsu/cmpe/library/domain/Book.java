@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.*;
 import java.util.List;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 
@@ -232,11 +234,13 @@ public class Book {
 	// {available, checked-out, in-queue, or lost}
 	public void setStatus (String status)
 	{
-		if(status.equals("checked-out") || 
-				status.equals("in-queue") ||
-				status.equals("lost") )
-			this.status= status;
+		checkArgument(status.equalsIgnoreCase("checked-out") || 
+				status.equalsIgnoreCase("in-queue") ||
+				status.equalsIgnoreCase("lost") ||
+				status.equalsIgnoreCase("available"),
+				"invalid status", status);
 
+			this.status = status;
 	
 	}
 
